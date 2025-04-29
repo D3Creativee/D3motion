@@ -569,19 +569,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
     });
 });
-
-
-// في ملف service-worker.js
-self.addEventListener('install', (e) => {
-    e.waitUntil(
-      caches.open('my-cache').then((cache) => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/styles.css',
-          '/app.js'
-        ]);
-      })
-    );
-  });
-  

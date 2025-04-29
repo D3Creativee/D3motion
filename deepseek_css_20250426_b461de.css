@@ -3428,35 +3428,3 @@ footer {
     .dot.active {
         background: #333;
     }
-    /* في ملف CSS */
-body {
-    font-size: 16px; /* حجم أساسي مناسب */
-  }
-  
-  h1 {
-    font-size: 1.8rem; /* حجم مرن */
-  }
-  
-  @media (max-width: 768px) {
-    body {
-      font-size: 14px;
-    }
-    
-    h1 {
-      font-size: 1.5rem;
-    }
-  }.btn {
-    min-width: 48px;
-    min-height: 48px;
-    padding: 12px 24px;
-  }.sidebar {
-    width: 85%; /* تشغل معظم الشاشة */
-    max-width: 300px;
-  }
-  
-  @media (max-width: 480px) {
-    .sidebar {
-      width: 90%;
-    }
-  }
-  
