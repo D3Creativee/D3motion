@@ -584,23 +584,4 @@ self.addEventListener('install', (e) => {
       })
     );
   });
-  // تحسين القائمة للهواتف
-document.getElementById('mobileMenu').addEventListener('click', function() {
-    document.getElementById('mainNav').classList.toggle('active');
-    document.body.style.overflow = document.getElementById('mainNav').classList.contains('active') ? 'hidden' : 'auto';
-  });
   
-  // إغلاق القائمة عند النقر على رابط
-  document.querySelectorAll('#mainNav .nav-link').forEach(link => {
-    link.addEventListener('click', function() {
-      document.getElementById('mainNav').classList.remove('active');
-      document.body.style.overflow = 'auto';
-    });
-  });
-  
-  // منع التكبير في حقول الإدخال على iOS
-  document.addEventListener('touchstart', function(event) {
-    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.tagName === 'SELECT') {
-      event.target.style.fontSize = '16px';
-    }
-  }, true);

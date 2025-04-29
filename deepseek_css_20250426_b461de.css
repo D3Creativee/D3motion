@@ -1,32 +1,5 @@
 /* الأساسيات والمتغيرات */
-/* إضافة في بداية الملف */
-html {
-    -webkit-text-size-adjust: 100%; /* منع تغيير حجم النص تلقائياً في iOS */
-    touch-action: manipulation; /* تحسين تجربة اللمس */
-  }
-  
-  body {
-    font-size: 16px; /* حجم خط أساسي مناسب للجوال */
-    -webkit-font-smoothing: antialiased; /* تحسين وضوح الخطوط */
-    text-rendering: optimizeLegibility;
-  }
-  
-  /* تحسين حجم الخطوط للعناوين */
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
-  }
-  
-  /* تحسين الأزرار للشاشات الصغيرة */
-  .btn {
-    min-width: 48px;
-    min-height: 48px;
-    padding: 12px 24px;
-    font-size: 1rem;
-  }
+
 :root {
     --primary-color: #4e54c8;
     --secondary-color: #8f94fb;
@@ -3687,4 +3660,3 @@ textarea {
       padding: 10px 0;
     }
   }
-  
