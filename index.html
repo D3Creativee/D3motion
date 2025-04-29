@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إبداع تك - حلول إبداعية متكاملة</title>
+    <meta name="description" content="نقدم خدمات تصميم الجرافيك، كتابة المحتوى، الترجمة، تحرير الفيديو، تصميم وبرمجة المواقع والتطبيقات">
+    <link rel="stylesheet" href="deepseek_css_20250426_b461de.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">       
+    <!-- أضف في قسم <head> -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+
+    
+ 
+    <!-- شريط التنقل العلوي -->
+    <header>
+        <div class="container">
+            <div class="logo">
+
+                <div class="logo" dir="rtl">
+                    <span class="d3-logo">D3<span class="motion-text">motion</span></span>
+                    <span class="logo-tagline">حلول متحركة</span>
+                  </div>
+                  
+                
+     
+    
+                <div>
+                </div>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                    <li><a href="#services" class="nav-link">خدماتنا</a></li>
+                    <li><a href="#projects" class="nav-link">أعمالنا</a></li>
+                    <li><a href="#pricing" class="nav-link">الباقات</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
+                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+                
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-carousel">
+            <!-- الشريحة الأولى -->
+            <div class="hero-slide active" style="background: linear-gradient(135deg, #500c6b 0%, #bb9ce9 100%);">
+                <div class="container">
+                    <div class="hero-grid">
+                        <div class="hero-text">
+                            <h1 class="hero-title animate__animated animate__fadeInDown">نحوّل رؤيتك إلى تجربة رقمية استثنائية</h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">حلول تقنية مبتكرة مصممة خصيصًا لنمو أعمالك</p>
+                            
+                            <div class="hero-actions animate__animated animate__fadeInUp animate__delay-2s">
+                                <a href="#contact" class="btn btn-primary btn-lg">
+                                    ابدأ مشروعك الآن
+                                    <i class="fas fa-arrow-left ml-2"></i>
+                                </a>
+                                <a href="#services" class="btn btn-outline-light btn-lg">
+                                    اكتشف خدماتنا
+                                    <i class="fas fa-search ml-2"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="hero-features animate__animated animate__fadeInUp animate__delay-3s">
+                                <span><i class="fas fa-check-circle"></i> تصميم فريد</span>
+                                <span><i class="fas fa-check-circle"></i> أداء عالي</span>
+                                <span><i class="fas fa-check-circle"></i> دعم فني</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-media">
+                            <!-- بديل الصورة باستخدام SVG وتأثيرات CSS -->
+                            <div class="graphic-container animate__animated animate__zoomIn animate__delay-1s">
+                                <div class="tech-circle">
+                                    <div class="circle-core"></div>
+                                    <div class="orbit orbit-1">
+                                        <div class="satellite sat-1"><i class="fas fa-code"></i></div>
+                                    </div>
+                                    <div class="orbit orbit-2">
+                                        <div class="satellite sat-2"><i class="fas fa-paint-brush"></i></div>
+                                    </div>
+                                    <div class="orbit orbit-3">
+                                        <div class="satellite sat-3"><i class="fas fa-mobile-alt"></i></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="floating-elements">
+                                    <div class="shape shape-1"></div>
+                                    <div class="shape shape-2"></div>
+                                    <div class="shape shape-3"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- الشارة المعدلة -->
+                            <div class="hero-badge animate__animated animate__pulse animate__infinite">
+                                <span> ابدع تك</span>
+                                <div class="badge-decoration"></div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+                
+<form id="contactForm">
+    <input type="text" id="name" placeholder="الاسم" required>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <textarea id="message" placeholder="الرسالة" required></textarea>
+    <button type="submit">إرسال</button>
+  </form>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const contactData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      
+      try {
+        await addData("contacts", contactData);
+        alert("تم إرسال رسالتك بنجاح!");
+        e.target.reset();
+      } catch (error) {
+        handleFirebaseError(error);
+      }
+    });
+  </script>
+            <!-- الشريحة الثانية -->
+            <div class="hero-slide" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                <div class="container">
+                    <div class="hero-grid">
+                        <div class="hero-text">
+                            <h1 class="hero-title">هوية بصرية تخلق انطباعًا دائمًا</h1>
+                            <p class="hero-subtitle">تصميم جرافيكي يعكس قيم علامتك التجارية</p>
+                            
+                            <div class="hero-actions">
+                                <a href="#contact" class="btn btn-primary btn-lg">
+                                    اطلب تصميمك
+                                    <i class="fas fa-palette ml-2"></i>
+                                </a>
+                                <a href="#portfolio" class="btn btn-outline-light btn-lg">
+                                    معرض الأعمال
+                                    <i class="fas fa-images ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-media">
+                            <img src="images/hero-design.png" alt="تصميم جرافيك وهوية بصرية">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- عناصر التحكم -->
+        <div class="hero-controls">
+            <button class="control-prev" aria-label="السابق">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="control-next" aria-label="التالي">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
+        
+        <div class="hero-pagination">
+            <button class="pagination-dot active" aria-label="الشريحة 1"></button>
+            <button class="pagination-dot" aria-label="الشريحة 2"></button>
+        </div>
+        
+        <div class="hero-scroll-down">
+            <a href="#about" class="scroll-link">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+   
+    
+    <section id="services" class="services-section">
+        <div class="container">
+            <!-- رأس القسم مع تأثيرات مميزة -->
+            <div class="section-header">
+                <div class="section-label">
+                    <span class="label-text">ما نقدمه</span>
+                    <span class="label-line"></span>
+                </div>
+                <h2 class="section-title">
+                    <span class="title-highlight">حلولنا</span> المتكاملة
+                </h2>
+                <p class="section-subtitle">نحول أفكارك إلى واقع رقمي ملموس عبر مجموعة متكاملة من الحلول التقنية</p>
+                <div class="section-decoration">
+                    <div class="decor-line"></div>
+                    <div class="decor-dot"></div>
+                    <div class="decor-line"></div>
+                </div>
+            </div>
+    
+            <!-- تبويبات الخدمات بتصميم عصري -->
+            <div class="services-nav">
+                <div class="nav-track">
+                    <!-- الزر الأول -->
+                    <button class="nav-item active" data-category="all">
+                        <span class="nav-icon"><i class="fas fa-star"></i></span>
+                        <span class="nav-text">الكل</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+            
+                    <!-- الزر الثاني -->
+                    <button class="nav-item" data-category="design">
+                        <span class="nav-icon"><i class="fas fa-paint-brush"></i></span>
+                        <span class="nav-text">التصميم</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+            
+                    <!-- الزر الثالث -->
+                    <button class="nav-item" data-category="development">
+                        <span class="nav-icon"><i class="fas fa-code"></i></span>
+                        <span class="nav-text">التطوير</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+            
+                    <!-- الزر الرابع -->
+                    <button class="nav-item" data-category="marketing">
+                        <span class="nav-icon"><i class="fas fa-bullhorn"></i></span>
+                        <span class="nav-text">التسويق</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+            
+                    <!-- الزر الخامس -->
+                    <button class="nav-item" data-category="content">
+                        <span class="nav-icon"><i class="fas fa-pen-nib"></i></span>
+                        <span class="nav-text">المحتوى</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </div>
+                <div class="nav-highlight"></div>
+            </div>
+    
+            <!-- شبكة الخدمات بتصميم كروي تفاعلي -->
+            <div class="services-display">
+                <div class="service-orbit">
+                    <!-- الخدمة 1 -->
+                    <div class="service-card" data-category="design">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="fas fa-pencil-ruler"></i>
+                                <div class="icon-pulse"></div>
+                            </div>
+                            <h3 class="service-title">تصميم الهوية البصرية</h3>
+                            <p class="service-desc">بناء هوية مميزة تعبر عن قيم علامتك التجارية</p>
+                            <ul class="service-features">
+                                <li>تصميم الشعار</li>
+                                <li>دليل الهوية</li>
+                                <li>المواد الدعائية</li>
+                            </ul>
+                        </div>
+                        <div class="card-hover">
+                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- الخدمة 2 -->
+                    <div class="service-card" data-category="development">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop-code"></i>
+                                <div class="icon-pulse"></div>
+                            </div>
+                            <h3 class="service-title">تطوير المواقع</h3>
+                            <p class="service-desc">مواقع ويب سريعة وتفاعلية بتقنيات حديثة</p>
+                            <ul class="service-features">
+                                <li>متجاوب مع جميع الأجهزة</li>
+                                <li>واجهة مستخدم مميزة</li>
+                                <li>تحسين محركات البحث</li>
+                            </ul>
+                        </div>
+                        <div class="card-hover">
+                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- الخدمة 3 -->
+                    <div class="service-card" data-category="marketing">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="fas fa-ad"></i>
+                                <div class="icon-pulse"></div>
+                            </div>
+                            <h3 class="service-title">إعلانات مدمجة</h3>
+                            <p class="service-desc">حملات إعلانية ذكية تحقق أعلى عائد استثمار</p>
+                            <ul class="service-features">
+                                <li>تحليل السوق</li>
+                                <li>إعلانات ممولة</li>
+                                <li>تقارير أداء</li>
+                            </ul>
+                        </div>
+                        <div class="card-hover">
+                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- يمكن إضافة المزيد من الخدمات هنا -->
+                </div>
+            </div>
+    
+            <!-- عناصر إضافية -->
+            <div class="services-cta">
+                <p>هل لديك مشروع خاص؟ دعنا نناقشه معًا</p>
+                <a href="#contact" class="cta-btn">
+                    <span>تواصل معنا</span>
+                    <div class="btn-arrows">
+                        <i class="fas fa-arrow-left"></i>
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+  <!-- كيف نعمل -->
+<section class="work-process">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">كيف نعمل</h2>
+            <p class="section-subtitle">خطوات بسيطة للحصول على خدمتك</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <i class="fas fa-comment-dots"></i>
+                <h3>التواصل</h3>
+                <p>اتصل بنا أو أرسل استفسارك</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <i class="fas fa-lightbulb"></i>
+                <h3>الاستشارة</h3>
+                <p>نناقش متطلباتك بالتفصيل</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <i class="fas fa-file-contract"></i>
+                <h3>العقد</h3>
+                <p>نوقع العقد ونحدد الجدول الزمني</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <i class="fas fa-tasks"></i>
+                <h3>التنفيذ</h3>
+                <p>نبدأ العمل على مشروعك</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <i class="fas fa-check-circle"></i>
+                <h3>التسليم</h3>
+                <p>نقدم لك العمل النهائي</p>
+            </div>
+        </div>
+    </div>
+</section>
+                <!-- المزيد من الآراء ستضاف عبر JavaScript -->
+            <div class="slider-controls">
+                <button class="slider-prev"><i class="fas fa-chevron-right"></i></button>
+                <button class="slider-next"><i class="fas fa-chevron-left"></i></button>
+            </div>
+            <div class="slider-dots"></div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                <p class="section-subtitle">إجابات على أسئلتك الأكثر شيوعًا</p>
+            </div>
+            
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        كم تستغرق مدة تنفيذ المشروع؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>تختلف مدة التنفيذ حسب نوع المشروع وتعقيده...</p>
+                    </div>
+                    <div class="faq-container">
+                        <details class="faq-item">
+                            <summary class="faq-question">
+                                كم السعر؟
+                                <i class="fas fa-chevron-down"></i>
+                            </summary>
+                            <div class="faq-answer">
+                                <p>تختلف التصميم عن بعضها ...</p>
+                            </div>
+                </details>              
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- اتصل بنا -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
+            </div>
+       
+                
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnndnbzr" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>اختر الخدمة</option>
+                            <option value="design">تصميم الجرافيك</option>
+                            <option value="content">كتابة المحتوى</option>
+                            <option value="translation">الترجمة</option>
+                            <option value="translation">تصميم 3D</option>
+                            <option value="video">تحرير الفيديو</option>
+                            <option value="web-design">تصميم مواقع</option>
+                            <option value="development">برمجة مواقع وتطبيقات</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="الرسالة" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="right-side-contact">
+        <!-- عنصر الهاتف -->
+        <div class="contact-card right-card">
+            <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-content">
+                <span class="contact-label">اتصل بنا</span>
+                <a href="tel:+201552114872" class="contact-info">+20 155 211 4872</a>
+            </div>
+            <div class="contact-pulse"></div>
+        </div>
+    
+        <!-- عنصر الإيميل -->
+        <div class="contact-card right-card">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-content">
+                <span class="contact-label">البريد الإلكتروني</span>
+                <a href="mailto:hanrahmed54@gmail.com" class="contact-info">hanrahmed54@gmail.com</a>
+            </div>
+            <div class="contact-pulse"></div>
+        </div>
+    </div>
+<!-- الباقات -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo">
+                    </div>
+                    <p>نقدم حلولاً إبداعية وعملية لمساعدة عملك على النمو والازدهار في العالم الرقمي.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#projects">أعمالنا</a></li>
+                        <li><a href="#pricing">الباقات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#">تصميم الجرافيك</a></li>
+                        <li><a href="#">كتابة المحتوى</a></li>
+                        <li><a href="#">الترجمة</a></li>
+                        <li><a href="#">تحرير الفيديو</a></li>
+                        <li><a href="#">تصميم مواقع</a></li>
+                        <li><a href="#">برمجة تطبيقات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +201552114872</li>
+                        <li><i class="fas fa-envelope"></i> hanrahmed54@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الوطن العربي</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 إبداع تك. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">شروط الخدمة</a>
+                    <a href="#">أسئلة شائعة</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="deepseek_javascript_20250426_867f21.js"></script>
+    
+    <!-- أضف هذا قبل نهاية body -->
+<a href="https://wa.me/+201552114872" class="whatsapp-float right">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip">تواصل معنا</span>
+  </a>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // عناصر القائمة
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        const loader = document.querySelector('.loader');
+    
+        // إخفاء شريط التحميل عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+    
+        // فتح/إغلاق القائمة
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    
+        sidebarOverlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    
+        // إغلاق القائمة عند النقر على أي عنصر
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    });
+    </script>
+  
+</body>
+</html>
