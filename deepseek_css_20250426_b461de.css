@@ -1350,10 +1350,10 @@ footer {
 @media (max-width: 768px) {
     .contact-btn-container {
         position: fixed;
-        bottom: 80px; /* ارتفاع أعلى من زر الواتساب */
+        bottom: 150px; /* ارتفاع أعلى من زر الواتساب */
         left: 50%;
         transform: translateX(-50%);
-        width: 90%;
+        width: 20%;
         max-width: 300px;
         text-align: center;
         z-index: 1001; /* أعلى من زر الواتساب */
