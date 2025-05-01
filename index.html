@@ -443,62 +443,86 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">تواصل معنا</h2>
-                <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
+                <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت. املأ النموذج وسنرد عليك خلال 24 ساعة</p>
             </div>
-       <!-- نموذج الاتصال المحسّن -->
-<form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xnndnbzr">
-    <div class="form-header">
-        <h3>تواصل معنا</h3>
-        <p>سنكون سعداء بمساعدتك في أي استفسار</p>
-    </div>
-    
-    <div class="form-group">
-        <label for="name">الاسم الكامل</label>
-        <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
-        <i class="fas fa-user"></i>
-    </div>
-    
-    <div class="form-group">
-        <label for="email">البريد الإلكتروني</label>
-        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
-        <i class="fas fa-envelope"></i>
-    </div>
-    
-    <div class="form-group">
-        <label for="phone">رقم الهاتف</label>
-        <input type="tel" id="phone" name="phone" placeholder="+20 123 456 7890">
-        <i class="fas fa-phone"></i>
-    </div>
-    
-    <div class="form-group">
-        <label for="service">نوع الخدمة</label>
-        <select id="service" name="service" required>
-            <option value="" disabled selected>اختر الخدمة المطلوبة</option>
-            <option value="design">تصميم الجرافيك</option>
-            <option value="3d">تصميم ثلاثي الأبعاد</option>
-            <option value="web-design">تصميم مواقع</option>
-            <option value="development">برمجة وتطوير</option>
-            <option value="marketing">التسويق الرقمي</option>
-        </select>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-    
-    <div class="form-group">
-        <label for="message">الرسالة</label>
-        <textarea id="message" name="message" placeholder="أخبرنا عن مشروعك..." required></textarea>
-        <i class="fas fa-comment"></i>
-    </div>
-    
-    <div class="form-footer">
-        <button type="submit" class="btn btn-primary submit-btn">
-            <span class="btn-text">إرسال الرسالة</span>
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
-</form>
             
+            <div class="contact-wrapper">
+                <!-- نموذج الاتصال المحسّن -->
+                <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xnndnbzr">
+                    <div class="form-header">
+                        <h3><i class="fas fa-paper-plane"></i> أرسل رسالتك</h3>
+                        <p>سنكون سعداء بمساعدتك في أي استفسار</p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="name">الاسم الكامل <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group half-width">
+                            <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="phone">رقم الهاتف</label>
+                            <div class="input-with-icon">
+                                <input type="tel" id="phone" name="phone" placeholder="+20 123 456 7890">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group half-width">
+                            <label for="service">نوع الخدمة <span class="required">*</span></label>
+                            <div class="select-with-icon">
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>اختر الخدمة المطلوبة</option>
+                                    <option value="design">تصميم الجرافيك</option>
+                                    <option value="3d">تصميم ثلاثي الأبعاد</option>
+                                    <option value="web-design">تصميم مواقع</option>
+                                    <option value="development">برمجة وتطوير</option>
+                                    <option value="marketing">التسويق الرقمي</option>
+                                    <option value="other">خدمة أخرى</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">الرسالة <span class="required">*</span></label>
+                        <div class="textarea-with-icon">
+                            <textarea id="message" name="message" rows="5" placeholder="أخبرنا عن مشروعك بالتفصيل..." required></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-text">إرسال الرسالة</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <p class="form-note">جميع الحقول المميزة بـ <span class="required">*</span> إلزامية</p>
+                        </div>
+                    </div>
+                </form>
+                
+             
+                   
+                </div>
+            </div>
+        </div>
     </section>
-
     <!-- تذييل الصفحة -->
     <footer>
         <div class="container">
@@ -560,7 +584,22 @@
             </div>
         </div>
     </footer>
-    
+    <!-- زر تواصل معنا العائم -->
+<div class="contact-btn-container">
+    <a href="#contact" class="cta-btn">
+        <span>تواصل معنا</span>
+        <div class="btn-arrows">
+        </div>
+    </a>
+</div>
+    <!-- زر خدمة العملاء العائم -->
+<div class="customer-service-btn">
+    <div class="cs-icon">
+        <i class="fas fa-headset"></i>
+        <span class="pulse-effect"></span>
+    </div>
+    <div class="cs-tooltip">خدمة العملاء</div>
+</div>
     <!-- زر واتساب عائم -->
     <a href="https://wa.me/+201552114872" class="whatsapp-float right">
         <i class="fab fa-whatsapp"></i>

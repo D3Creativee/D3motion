@@ -650,3 +650,31 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.classList.add('no-touch-device');
     }
 });
+document.querySelector('.customer-service-btn').addEventListener('click', function() {
+    // يمكنك تغيير هذا الرقم برقم خدمة العملاء الفعلي
+    const phoneNumber = '+201552114872';
+    
+    // خيارات للتفاعل
+    const shouldCall = confirm('هل تريد الاتصال بخدمة العملاء على الرقم ' + phoneNumber + '؟');
+    
+    if(shouldCall) {
+        window.location.href = 'tel:' + phoneNumber;
+    }
+    
+    // بديل: فتح نموذج محادثة
+    // document.getElementById('chat-window').style.display = 'block';
+});
+document.querySelector('.contact-icon').addEventListener('click', function() {
+    document.querySelector('.floating-contact-btn').classList.toggle('active');
+});
+
+// إغلاق القائمة عند النقر خارجها
+document.addEventListener('click', function(e) {
+    const floatingBtn = document.querySelector('.floating-contact-btn');
+    if (!floatingBtn.contains(e.target)) {
+        floatingBtn.classList.remove('active');
+    }
+});
+document.querySelector('.cta-btn').addEventListener('click', function() {
+    new Audio('click-sound.mp3').play();
+});
