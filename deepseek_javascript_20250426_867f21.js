@@ -1,571 +1,346 @@
+// deepseek_javascript_20250426_867f21.js
 
-document.addEventListener('DOMContentLoaded', function() {
-    // شريط التحميل
-    const loader = document.querySelector('.loader');
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            loader.classList.add('hidden');
-        }, 1000);
-    });
-
-    // زر العودة للأعلى
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('active');
-        } else {
-            backToTopBtn.classList.remove('active');
-        }
-    });
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // القائمة المتنقلة
-    const mobileMenuBtn = document.getElementById('mobileMenu');
-    const nav = document.getElementById('mainNav');
-    mobileMenuBtn.addEventListener('click', function() {
-        nav.classList.toggle('active');
-    });
-
-    // تغيير لون الهيدر عند التمرير
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // تأثير سلس للروابط
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-      
-            }
-        });
-    });
-
-    // السلايدر الرئيسي
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    let currentSlide = 0;
-
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[n].classList.add('active');
-        updateDots();
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    // إنشاء نقاط السلايدر
-    const sliderDots = document.querySelector('.slider-dots');
-    slides.forEach((slide, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            currentSlide = index;
-            showSlide(currentSlide);
-        });
-        sliderDots.appendChild(dot);
-    });
-
-    function updateDots() {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            if (index === currentSlide) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-
-    // التمرير التلقائي للسلايدر
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    function pauseSlider() {
-        clearInterval(slideInterval);
-    }
-
-    function resumeSlider() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    // إيقاف التمرير التلقائي عند التفاعل
-    const heroSlider = document.querySelector('.hero-slider');
-    heroSlider.addEventListener('mouseenter', pauseSlider);
-    heroSlider.addEventListener('mouseleave', resumeSlider);
-
-    // عداد الإحصائيات
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-
-    function animateCounters() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / speed;
-            
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(animateCounters, 1);
-            } else {
-                counter.innerText = target;
-            }
-        });
-    }
-
-    // تشغيل العداد عند التمرير للقسم
-    const statsSection = document.querySelector('.stats-bar');
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            animateCounters();
-            observer.unobserve(statsSection);
-        }
-    }, { threshold: 0.5 });
-
-    observer.observe(statsSection);
-
-    // تبويبات الخدمات
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const servicesGrid = document.querySelector('.services-grid');
-
-    const servicesData = {
-        design: [
-            {
-                icon: 'fas fa-paint-brush',
-                title: 'تصميم الجرافيك',
-                description: 'تصميم شعارات، هوية بصرية، بطاقات عمل، إعلانات، وغيرها من المواد التسويقية'
-            },
-            {
-                icon: 'fas fa-palette',
-                title: 'تصميم واجهات المستخدم',
-                description: 'تصميم واجهات مستخدم جذابة وسهلة الاستخدام للمواقع والتطبيقات'
-            },
-            {
-                icon: 'fas fa-icons',
-                title: 'تصميم الرسوم المتحركة',
-                description: 'إنشاء رسوم متحركة وإعلانات متحركة لجذب الانتباه'
-            }
-        ],
-        content: [
-            {
-                icon: 'fas fa-pen-fancy',
-                title: 'كتابة المحتوى',
-                description: 'نصوص إبداعية، مقالات، محتوى مواقع إلكترونية، سيناريوهات، وصف منتجات'
-            },
-            {
-                icon: 'fas fa-language',
-                title: 'الترجمة',
-                description: 'ترجمة احترافية بين العربية والإنجليزية والفرنسية بجودة عالية ودقة متناهية'
-            },
-            {
-                icon: 'fas fa-search',
-                title: 'تحسين محركات البحث',
-                description: 'تحسين محتوى موقعك لظهور أفضل في نتائج محركات البحث'
-            }
-        ],
-        development: [
-            {
-                icon: 'fas fa-laptop-code',
-                title: 'تصميم مواقع',
-                description: 'تصميم مواقع إلكترونية جذابة وسريعة الاستجابة تلبي احتياجات عملك'
-            },
-            {
-                icon: 'fas fa-mobile-alt',
-                title: 'برمجة تطبيقات',
-                description: 'تطوير تطبيقات مخصصة بأساليب برمجية حديثة وآمنة'
-            },
-            {
-                icon: 'fas fa-shopping-cart',
-                title: 'متاجر إلكترونية',
-                description: 'إنشاء متاجر إلكترونية متكاملة مع أنظمة الدفع والشحن'
-            }
-        ]
-    };
-
-    function renderServices(category) {
-        servicesGrid.innerHTML = '';
-        servicesData[category].forEach(service => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'service-card fade-in';
-            serviceCard.innerHTML = `
-                <i class="${service.icon}"></i>
-                <h3>${service.title}</h3>
-                <p>${service.description}</p>
-            `;
-            servicesGrid.appendChild(serviceCard);
-        });
-    }
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderServices(btn.dataset.tab);
-        });
-    });
-
-    // عرض الخدمات الافتراضية عند التحميل
-    renderServices('design');
-
-    // تصفية أعمالنا
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectsGrid = document.querySelector('.projects-grid');
-
-    const projectsData = [
-        {
-            id: 1,
-            title: 'تصميم شعار لشركة تقنية',
-            category: 'design',
-            image: 'images/project1.jpg'
-        },
-        {
-            id: 2,
-            title: 'موقع إلكتروني لمطعم',
-            category: 'web',
-            image: 'images/project2.jpg'
-        },
-        {
-            id: 3,
-            title: 'تطبيق جوال للياقة البدنية',
-            category: 'app',
-            image: 'images/project3.jpg'
-        },
-        {
-            id: 4,
-            title: 'فيديو دعائي لشركة',
-            category: 'video',
-            image: 'images/project4.jpg'
-        },
-        {
-            id: 5,
-            title: 'هوية بصرية لمتجر',
-            category: 'design',
-            image: 'images/project5.jpg'
-        },
-        {
-            id: 6,
-            title: 'نظام إدارة محتوى',
-            category: 'web',
-            image: 'images/project6.jpg'
-        }
-    ];
-
-    function renderProjects(filter = 'all') {
-        projectsGrid.innerHTML = '';
-        const filteredProjects = filter === 'all' 
-            ? projectsData 
-            : projectsData.filter(project => project.category === filter);
-        
-        filteredProjects.forEach(project => {
-            const projectItem = document.createElement('div');
-            projectItem.className = 'project-item fade-in';
-            projectItem.dataset.category = project.category;
-            projectItem.innerHTML = `
-                <img src="${project.image}" alt="${project.title}">
-                <div class="project-overlay">
-                    <h3>${project.title}</h3>
-                    <p>فئة المشروع: ${project.category}</p>
-                    <div class="project-links">
-                        <a href="#"><i class="fas fa-link"></i></a>
-                        <a href="#"><i class="fas fa-search"></i></a>
-                    </div>
-                </div>
-            `;
-            projectsGrid.appendChild(projectItem);
-        });
-    }
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProjects(btn.dataset.filter);
-        });
-    });
-
-    // عرض المشاريع الافتراضية عند التحميل
-    renderProjects();
-
-    // تبديل الباقات السعرية
-    const pricingToggle = document.getElementById('pricingToggle');
-    const monthlyPrices = [444, 777, 999];
-    const yearlyPrices = [200, 600, 800];
-
-    const pricingData = [
-        {
-            title: "الباقة الأساسية",
-            features: [
-                "تصميم 5 شعارات",
-                "3 صفحات موقع",
-                "دعم فني محدود",
-                "تحديثات شهرية"
-            ],
-            popular: false
-        },
-        {
-            title: "الباقة المتوسطة",
-            features: [
-                "تصميم 10 شعارات",
-                "10 صفحات موقع",
-                "دعم فني متوسط",
-                "تحديثات أسبوعية",
-                "استضافة مجانية"
-            ],
-            popular: true
-        },
-        {
-            title: "الباقة الممتازة",
-            features: [
-                "تصميم غير محدود",
-                "موقع كامل",
-                "دعم فني 24/7",
-                "تحديثات يومية",
-                "استضافة مجانية",
-                "نطاق مجاني"
-            ],
-            popular: false
-        }
-    ];
-
-    function renderPricing(isYearly) {
-        const pricingGrid = document.querySelector('.pricing-grid');
-        pricingGrid.innerHTML = '';
-        
-        const prices = isYearly ? yearlyPrices : monthlyPrices;
-        
-        pricingData.forEach((plan, index) => {
-            const pricingCard = document.createElement('div');
-            pricingCard.className = `pricing-card ${plan.popular ? 'popular' : ''} fade-in`;
-            pricingCard.innerHTML = `
-                <h3>${plan.title}</h3>
-                <div class="price">$${prices[index]} <span>/${isYearly ? 'سنوياً' : 'شهرياً'}</span></div>
-                <ul>
-                    ${plan.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
-                </ul>
-                <button class="btn ${plan.popular ? 'btn-primary' : 'btn-outline'}">اختر الباقة</button>
-            `;
-            pricingGrid.appendChild(pricingCard);
-        });
-    }
-
-    pricingToggle.addEventListener('change', function() {
-        renderPricing(this.checked);
-    });
-
-
-    // تأثيرات الظهور عند التمرير
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    function checkFade() {
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // التحقق عند التحميل وعند التمرير
-    window.addEventListener('load', checkFade);
-    window.addEventListener('scroll', checkFade);
-    
-    // تأثيرات AOS
-    function initAOS() {
-        const aosElements = document.querySelectorAll('[data-aos]');
-        
-        function checkAOS() {
-            aosElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('aos-animate');
-                }
-            });
-        }
-        
-        window.addEventListener('load', checkAOS);
-        window.addEventListener('scroll', checkAOS);
-    }
-    
-    initAOS();
-});
-
-
-
-// أضف في JS
+// تهيئة Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSy...",
-    authDomain: "your-app.firebaseapp.com",
-    projectId: "your-app",
-    storageBucket: "your-app.appspot.com",
-    messagingSenderId: "123...",
-    appId: "1:123..."
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
   };
   
+  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
+  const auth = firebase.auth();
+  const storage = firebase.storage();
   
-  document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
+  // وظائف عامة
+  function handleFirebaseError(error) {
+    console.error("Firebase Error:", error);
+    alert("حدث خطأ: " + error.message);
+  }
+  
+  async function addData(collection, data) {
     try {
-      await db.collection('requests').add({
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        message: document.getElementById('message').value,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
-      alert('تم حفظ الطلب بنجاح!');
+      const docRef = await db.collection(collection).add(data);
+      console.log("Document written with ID: ", docRef.id);
+      return docRef;
     } catch (error) {
-      alert('حدث خطأ: ' + error.message);
+      handleFirebaseError(error);
+      throw error;
     }
-  });
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const answer = button.nextElementSibling;
-      answer.classList.toggle('active');
-      button.querySelector('i').classList.toggle('fa-chevron-up');
-    });
-  });
-   // هذا الكود لجعل الأيقونة تتغير عند الفتح/الإغلاق
-   document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('toggle', function() {
-        const icon = this.querySelector('i');
-        if (this.open) {
-            icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-        } else {
-            icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-        }
-    });
-});
-// في ملف JavaScript
-const mobileMenuBtn = document.getElementById('mobileMenu');
-const mainNav = document.getElementById('mainNav');
-
-mobileMenuBtn.addEventListener('click', function() {
-    mainNav.classList.toggle('active');
-    this.classList.toggle('fa-times');
-    this.classList.toggle('fa-bars');
-});
-
-// إغلاق القائمة عند النقر على رابط
-document.querySelectorAll('#mainNav a').forEach(link => {
-    link.addEventListener('click', function() {
-        mainNav.classList.remove('active');
-        mobileMenuBtn.classList.remove('fa-times');
-        mobileMenuBtn.classList.add('fa-bars');
-    });
-});
-// في ملف JavaScript
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section');
-
-window.addEventListener('scroll', function() {
-    let current = '';
+  }
+  
+  // التنقل المتنقل
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenu');
+    const mainNav = document.getElementById('mainNav');
     
-    sections.forEach(section => {
+    mobileMenuBtn.addEventListener('click', function() {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+  
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('#mainNav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+  
+    // إضافة فعالية للروابط
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  
+    // تغيير لون الهيدر عند التمرير
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        header.style.padding = '0.5rem 0';
+      } else {
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        header.style.padding = '1rem 0';
+      }
+    });
+  
+    // تنشيط الروابط عند التمرير
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+  
+    window.addEventListener('scroll', function() {
+      let current = '';
+      
+      sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (pageYOffset >= (sectionTop - 150)) {
-            current = section.getAttribute('id');
+        if (pageYOffset >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
         }
-    });
-    
-    navLinks.forEach(link => {
+      });
+  
+      navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+          link.classList.add('active');
         }
+      });
     });
-});// في ملف JavaScript
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  
+    // كاروسيل الهيرو
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const paginationDots = document.querySelectorAll('.pagination-dot');
+    let currentSlide = 0;
+  
+    function showSlide(index) {
+      heroSlides.forEach(slide => slide.classList.remove('active'));
+      paginationDots.forEach(dot => dot.classList.remove('active'));
+      
+      heroSlides[index].classList.add('active');
+      paginationDots[index].classList.add('active');
+      currentSlide = index;
+    }
+  
+    document.querySelector('.control-next').addEventListener('click', () => {
+      let nextSlide = (currentSlide + 1) % heroSlides.length;
+      showSlide(nextSlide);
+    });
+  
+    document.querySelector('.control-prev').addEventListener('click', () => {
+      let prevSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+      showSlide(prevSlide);
+    });
+  
+    paginationDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+  
+    // تبديل الخدمات
+    const serviceNavItems = document.querySelectorAll('.nav-item');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const navHighlight = document.querySelector('.nav-highlight');
+  
+    function updateNavHighlight(element) {
+      const { left, width } = element.getBoundingClientRect();
+      const containerLeft = document.querySelector('.nav-track').getBoundingClientRect().left;
+      
+      navHighlight.style.width = `${width}px`;
+      navHighlight.style.left = `${left - containerLeft}px`;
+    }
+  
+    serviceNavItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const category = this.dataset.category;
+        
+        // تحديث العنصر النشط
+        serviceNavItems.forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        
+        // تحديد موضع الخط
+        updateNavHighlight(this);
+        
+        // تصفية الخدمات
+        serviceCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  
+    // تهيئة الخط تحت العنصر النشط
+    const activeNavItem = document.querySelector('.nav-item.active');
+    if (activeNavItem) {
+      updateNavHighlight(activeNavItem);
+    }
+  
+    // إرسال نموذج الاتصال
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        const formData = {
+          name: this.name.value,
+          email: this.email.value,
+          phone: this.phone.value,
+          service: this.service.value,
+          message: this.message.value,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        };
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.offsetTop - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+        try {
+          await addData('contacts', formData);
+          alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.');
+          this.reset();
+        } catch (error) {
+          handleFirebaseError(error);
+        }
+      });
+    }
+  
+    // تحميل آراء العملاء
+    async function loadTestimonials() {
+      try {
+        const snapshot = await db.collection('testimonials').orderBy('timestamp', 'desc').limit(5).get();
+        const testimonialsContainer = document.querySelector('.testimonials-container');
+        
+        if (testimonialsContainer) {
+          testimonialsContainer.innerHTML = '';
+          
+          snapshot.forEach(doc => {
+            const testimonial = doc.data();
+            const testimonialElement = document.createElement('div');
+            testimonialElement.className = 'testimonial';
+            testimonialElement.innerHTML = `
+              <div class="testimonial-content">
+                <p>"${testimonial.content}"</p>
+              </div>
+              <div class="testimonial-author">
+                <h4>${testimonial.name}</h4>
+                <span>${testimonial.position}</span>
+              </div>
+            `;
+            testimonialsContainer.appendChild(testimonialElement);
+          });
+        }
+      } catch (error) {
+        handleFirebaseError(error);
+      }
+    }
+  
+    // تحميل الأسئلة الشائعة
+    async function loadFAQs() {
+      try {
+        const snapshot = await db.collection('faqs').orderBy('order').get();
+        const faqContainer = document.querySelector('.faq-container');
+        
+        if (faqContainer) {
+          // إزالة الأسئلة الافتراضية
+          const defaultItems = faqContainer.querySelectorAll('.faq-item[data-default]');
+          defaultItems.forEach(item => item.remove());
+          
+          snapshot.forEach(doc => {
+            const faq = doc.data();
+            const faqItem = document.createElement('details');
+            faqItem.className = 'faq-item';
+            faqItem.innerHTML = `
+              <summary class="faq-question">
+                ${faq.question}
+                <i class="fas fa-chevron-down"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>${faq.answer}</p>
+              </div>
+            `;
+            faqContainer.appendChild(faqItem);
+          });
+        }
+      } catch (error) {
+        handleFirebaseError(error);
+      }
+    }
+  
+    // تحميل البيانات عند الحاجة
+    if (document.querySelector('.testimonials-container')) {
+      loadTestimonials();
+    }
+    
+    if (document.querySelector('.faq-container')) {
+      loadFAQs();
+    }
+  
+    // تأثيرات للبطاقات عند التمرير
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.service-card, .step, .faq-item');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+  
+    // تهيئة العناصر
+    document.querySelectorAll('.service-card, .step, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.5s ease';
+    });
+  
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // تشغيل مرة أولى عند التحميل
+  });
+  
+  // دورة تلقائية لكاروسيل الهيرو
+  let heroInterval = setInterval(() => {
+    const nextSlide = (currentSlide + 1) % heroSlides.length;
+    showSlide(nextSlide);
+  }, 5000);
+  
+  // إيقاف الدورة عند التفاعل
+  document.querySelector('.hero-carousel').addEventListener('mouseenter', () => {
+    clearInterval(heroInterval);
+  });
+  
+  document.querySelector('.hero-carousel').addEventListener('mouseleave', () => {
+    heroInterval = setInterval(() => {
+      const nextSlide = (currentSlide + 1) % heroSlides.length;
+      showSlide(nextSlide);
+    }, 5000);
+  });
+  // حل مشكلة عدم عمل الأزرار
+document.querySelectorAll('.service-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.stopPropagation(); // يمنع انتشار الحدث
+        const target = this.getAttribute('href');
+        if(target === '#contact') {
+            // إضافة تأثير ناعم للتمرير
+            document.querySelector(target).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-            
-            // إغلاق القائمة الجانبية إذا كانت مفتوحة
-            if (sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
         }
     });
-});// في ملف JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarOverlay = document.querySelector('.sidebar-overlay');
-    const sidebarClose = document.querySelector('.sidebar-close');
+});
 
-    // فتح القائمة الجانبية
-    sidebarToggle.addEventListener('click', function() {
-        sidebar.classList.add('active');
-        sidebarOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+// إصلاح مشكلة تغطية العناصر
+document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        if(!e.target.closest('.service-link')) {
+            // تنفيذ الأكشن الأساسي للبطاقة هنا
+        }
     });
-
-    // إغلاق القائمة الجانبية
-    sidebarClose.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    // إغلاق عند النقر خارج القائمة
-    sidebarOverlay.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
+});
+document.body.addEventListener('click', function(e) {
+    if(e.target.closest('.service-link')) {
+        e.preventDefault();
+        const target = e.target.closest('.service-link').getAttribute('href');
+        document.querySelector(target).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
 });

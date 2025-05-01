@@ -1,45 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>إبداع تك - حلول إبداعية متكاملة</title>
     <meta name="description" content="نقدم خدمات تصميم الجرافيك، كتابة المحتوى، الترجمة، تحرير الفيديو، تصميم وبرمجة المواقع والتطبيقات">
+    
+    <!-- CSS Links -->
     <link rel="stylesheet" href="deepseek_css_20250426_b461de.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">       
-    <!-- أضف في قسم <head> -->
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
 </head>
 <body>
 
-    
- 
     <!-- شريط التنقل العلوي -->
     <header>
         <div class="container">
-            <div class="logo">
-
-                <div class="logo" dir="rtl">
-                    <span class="d3-logo">D3<span class="motion-text">motion</span></span>
-                    <span class="logo-tagline">حلول متحركة</span>
-                  </div>
-                  
-                
-     
-    
-                <div>
-                </div>
+            <div class="logo" dir="rtl">
+                <span class="d3-logo">D3<span class="motion-text">motion</span></span>
+                <span class="logo-tagline">حلول متحركة</span>
             </div>
+            
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home" class="nav-link active">الرئيسية</a></li>
@@ -50,13 +38,14 @@
                     <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
                 </ul>
             </nav>
+            
             <div class="mobile-menu" id="mobileMenu">
                 <i class="fas fa-bars"></i>
-                
             </div>
         </div>
     </header>
 
+    <!-- القسم الرئيسي -->
     <section id="home" class="hero-section">
         <div class="hero-carousel">
             <!-- الشريحة الأولى -->
@@ -86,7 +75,6 @@
                         </div>
                         
                         <div class="hero-media">
-                            <!-- بديل الصورة باستخدام SVG وتأثيرات CSS -->
                             <div class="graphic-container animate__animated animate__zoomIn animate__delay-1s">
                                 <div class="tech-circle">
                                     <div class="circle-core"></div>
@@ -108,7 +96,6 @@
                                 </div>
                             </div>
                             
-                            <!-- الشارة المعدلة -->
                             <div class="hero-badge animate__animated animate__pulse animate__infinite">
                                 <span> ابدع تك</span>
                                 <div class="badge-decoration"></div>
@@ -117,61 +104,62 @@
                     </div>  
                 </div>
             </div>
-                
-<form id="contactForm">
-    <input type="text" id="name" placeholder="الاسم" required>
-    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-    <textarea id="message" placeholder="الرسالة" required></textarea>
-    <button type="submit">إرسال</button>
-  </form>
-  
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const contactData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      };
-      
-      try {
-        await addData("contacts", contactData);
-        alert("تم إرسال رسالتك بنجاح!");
-        e.target.reset();
-      } catch (error) {
-        handleFirebaseError(error);
-      }
-    });
-  </script>
+            
             <!-- الشريحة الثانية -->
-            <div class="hero-slide" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+            <div class="hero-slide" style="background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);">
                 <div class="container">
                     <div class="hero-grid">
                         <div class="hero-text">
-                            <h1 class="hero-title">هوية بصرية تخلق انطباعًا دائمًا</h1>
-                            <p class="hero-subtitle">تصميم جرافيكي يعكس قيم علامتك التجارية</p>
+                            <h1 class="hero-title animate__animated animate__fadeInDown">هوية بصرية تخلق انطباعًا دائمًا</h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">تصميم جرافيكي يعكس قيم علامتك التجارية ويجذب عملاءك</p>
                             
-                            <div class="hero-actions">
-                                <a href="#contact" class="btn btn-primary btn-lg">
+                            <div class="hero-actions animate__animated animate__fadeInUp animate__delay-2s">
+                                <a href="#contact" class="btn btn-primary btn-lg hover-3d">
                                     اطلب تصميمك
                                     <i class="fas fa-palette ml-2"></i>
                                 </a>
-                                <a href="#portfolio" class="btn btn-outline-light btn-lg">
+                                <a href="#portfolio" class="btn btn-outline-light btn-lg hover-3d">
                                     معرض الأعمال
                                     <i class="fas fa-images ml-2"></i>
                                 </a>
                             </div>
+                            
+                            <div class="hero-features animate__animated animate__fadeInUp animate__delay-3s">
+                                <span><i class="fas fa-check-circle"></i> شعار مميز</span>
+                                <span><i class="fas fa-check-circle"></i> ألوان متسقة</span>
+                                <span><i class="fas fa-check-circle"></i> هوية متكاملة</span>
+                            </div>
                         </div>
-                        
+                       
                         <div class="hero-media">
-                            <img src="images/hero-design.png" alt="تصميم جرافيك وهوية بصرية">
+                            <!-- بديل متحرك بدل الصورة الثابتة -->
+                            <div class="brand-identity-animation">
+                                <div class="logo-display">
+                                    <div class="logo-shape animate__animated animate__zoomIn">
+                                        <span class="logo-initial">D</span>
+                                    </div>
+                                    <div class="logo-particles">
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                    </div>
+                                </div>
+                                <div class="brand-mockups">
+                                    <div class="mockup business-card animate__animated animate__fadeInRight animate__delay-1s"></div>
+                                    <div class="mockup envelope animate__animated animate__fadeInRight animate__delay-2s"></div>
+                                    <div class="mockup stationery animate__animated animate__fadeInRight animate__delay-3s"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- عناصر زخرفية إضافية -->
+                <div class="hero-decoration">
+                    <div class="decor-circle"></div>
+                    <div class="decor-dots"></div>
+                </div>
             </div>
-        </div>
         
         <!-- عناصر التحكم -->
         <div class="hero-controls">
@@ -195,10 +183,9 @@
         </div>
     </section>
    
-    
+    <!-- قسم الخدمات -->
     <section id="services" class="services-section">
         <div class="container">
-            <!-- رأس القسم مع تأثيرات مميزة -->
             <div class="section-header">
                 <div class="section-label">
                     <span class="label-text">ما نقدمه</span>
@@ -215,38 +202,39 @@
                 </div>
             </div>
     
-            <!-- تبويبات الخدمات بتصميم عصري -->
+            <!-- تبويبات الخدمات -->
             <div class="services-nav">
                 <div class="nav-track">
-                    <!-- الزر الأول -->
                     <button class="nav-item active" data-category="all">
                         <span class="nav-icon"><i class="fas fa-star"></i></span>
                         <span class="nav-text">الكل</span>
                         <span class="nav-indicator"></span>
                     </button>
             
-                    <!-- الزر الثاني -->
                     <button class="nav-item" data-category="design">
                         <span class="nav-icon"><i class="fas fa-paint-brush"></i></span>
                         <span class="nav-text">التصميم</span>
                         <span class="nav-indicator"></span>
                     </button>
             
-                    <!-- الزر الثالث -->
                     <button class="nav-item" data-category="development">
                         <span class="nav-icon"><i class="fas fa-code"></i></span>
                         <span class="nav-text">التطوير</span>
                         <span class="nav-indicator"></span>
                     </button>
-            
-                    <!-- الزر الرابع -->
+
+                    <button class="nav-item" data-category="3d">
+                        <span class="nav-icon"><i class="fas fa-cube"></i></span>
+                        <span class="nav-text">تصميم 3D</span>
+                        <span class="nav-indicator"></span>
+                    </button>
+                    
                     <button class="nav-item" data-category="marketing">
                         <span class="nav-icon"><i class="fas fa-bullhorn"></i></span>
                         <span class="nav-text">التسويق</span>
                         <span class="nav-indicator"></span>
                     </button>
             
-                    <!-- الزر الخامس -->
                     <button class="nav-item" data-category="content">
                         <span class="nav-icon"><i class="fas fa-pen-nib"></i></span>
                         <span class="nav-text">المحتوى</span>
@@ -256,7 +244,7 @@
                 <div class="nav-highlight"></div>
             </div>
     
-            <!-- شبكة الخدمات بتصميم كروي تفاعلي -->
+            <!-- عرض الخدمات -->
             <div class="services-display">
                 <div class="service-orbit">
                     <!-- الخدمة 1 -->
@@ -275,7 +263,11 @@
                             </ul>
                         </div>
                         <div class="card-hover">
-                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                            <a href="#contact" class="service-link">
+                                <i class="fas fa-cube rotating-icon"></i>
+                                اطلب الخدمة
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
                         </div>
                     </div>
     
@@ -295,7 +287,11 @@
                             </ul>
                         </div>
                         <div class="card-hover">
-                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                            <a href="#contact" class="service-link">
+                                <i class="fas fa-cube rotating-icon"></i>
+                                اطلب الخدمة
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
                         </div>
                     </div>
     
@@ -315,15 +311,41 @@
                             </ul>
                         </div>
                         <div class="card-hover">
-                            <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                            <a href="#contact" class="service-link">
+                                <i class="fas fa-cube rotating-icon"></i>
+                                اطلب الخدمة
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
                         </div>
                     </div>
-    
-                    <!-- يمكن إضافة المزيد من الخدمات هنا -->
+                    
+                    <!-- الخدمة 4 -->
+                    <div class="service-card" data-category="3d">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="fas fa-cubes"></i>
+                                <div class="icon-pulse"></div>
+                            </div>
+                            <h3 class="service-title">تصميم ثلاثي الأبعاد</h3>
+                            <p class="service-desc">تصاميم واقعية ثلاثية الأبعاد لمشاريعك المختلفة</p>
+                            <ul class="service-features">
+                                <li>تصميم المنتجات</li>
+                                <li>النمذجة المعمارية</li>
+                                <li>الرسوم المتحركة 3D</li>
+                            </ul>
+                        </div>
+                        <div class="card-hover">
+                            <a href="#contact" class="service-link">
+                                <i class="fas fa-cube rotating-icon"></i>
+                                اطلب الخدمة
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-    
-            <!-- عناصر إضافية -->
+            
+            <!-- دعوة للعمل -->
             <div class="services-cta">
                 <p>هل لديك مشروع خاص؟ دعنا نناقشه معًا</p>
                 <a href="#contact" class="cta-btn">
@@ -336,55 +358,50 @@
             </div>
         </div>
     </section>
-  <!-- كيف نعمل -->
-<section class="work-process">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">كيف نعمل</h2>
-            <p class="section-subtitle">خطوات بسيطة للحصول على خدمتك</p>
+
+    <!-- قسم كيفية العمل -->
+    <section class="work-process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">كيف نعمل</h2>
+                <p class="section-subtitle">خطوات بسيطة للحصول على خدمتك</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>التواصل</h3>
+                    <p>اتصل بنا أو أرسل استفسارك</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>الاستشارة</h3>
+                    <p>نناقش متطلباتك بالتفصيل</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-file-contract"></i>
+                    <h3>العقد</h3>
+                    <p>نوقع العقد ونحدد الجدول الزمني</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-tasks"></i>
+                    <h3>التنفيذ</h3>
+                    <p>نبدأ العمل على مشروعك</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <i class="fas fa-check-circle"></i>
+                    <h3>التسليم</h3>
+                    <p>نقدم لك العمل النهائي</p>
+                </div>
+            </div>
         </div>
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <i class="fas fa-comment-dots"></i>
-                <h3>التواصل</h3>
-                <p>اتصل بنا أو أرسل استفسارك</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <i class="fas fa-lightbulb"></i>
-                <h3>الاستشارة</h3>
-                <p>نناقش متطلباتك بالتفصيل</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <i class="fas fa-file-contract"></i>
-                <h3>العقد</h3>
-                <p>نوقع العقد ونحدد الجدول الزمني</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <i class="fas fa-tasks"></i>
-                <h3>التنفيذ</h3>
-                <p>نبدأ العمل على مشروعك</p>
-            </div>
-            <div class="step">
-                <div class="step-number">5</div>
-                <i class="fas fa-check-circle"></i>
-                <h3>التسليم</h3>
-                <p>نقدم لك العمل النهائي</p>
-            </div>
-        </div>
-    </div>
-</section>
-                <!-- المزيد من الآراء ستضاف عبر JavaScript -->
-            <div class="slider-controls">
-                <button class="slider-prev"><i class="fas fa-chevron-right"></i></button>
-                <button class="slider-next"><i class="fas fa-chevron-left"></i></button>
-            </div>
-            <div class="slider-dots"></div>
     </section>
 
+    <!-- قسم الأسئلة الشائعة -->
     <section class="faq">
         <div class="container">
             <div class="section-header">
@@ -401,22 +418,22 @@
                     <div class="faq-answer">
                         <p>تختلف مدة التنفيذ حسب نوع المشروع وتعقيده...</p>
                     </div>
-                    <div class="faq-container">
-                        <details class="faq-item">
-                            <summary class="faq-question">
-                                كم السعر؟
-                                <i class="fas fa-chevron-down"></i>
-                            </summary>
-                            <div class="faq-answer">
-                                <p>تختلف التصميم عن بعضها ...</p>
-                            </div>
-                </details>              
+                </details>
+                
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        كم السعر؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>تختلف التصميم عن بعضها ...</p>
+                    </div>
+                </details>
             </div>
         </div>
     </section>
     
-
-    <!-- اتصل بنا -->
+    <!-- قسم الاتصال -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -424,68 +441,68 @@
                 <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
             </div>
        
-                
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnndnbzr" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnndnbzr" method="POST">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
+                </div>
+                <div class="form-group">
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>اختر الخدمة</option>
+                        <option value="design">تصميم الجرافيك</option>
+                        <option value="content">كتابة المحتوى</option>
+                        <option value="translation">الترجمة</option>
+                        <option value="3d">تصميم 3D</option>
+                        <option value="video">تحرير الفيديو</option>
+                        <option value="web-design">تصميم مواقع</option>
+                        <option value="development">برمجة مواقع وتطبيقات</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="الرسالة" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+            </form>
+            
+            <div class="right-side-contact">
+                <div class="contact-card right-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
+                    <div class="contact-content">
+                        <span class="contact-label">اتصل بنا</span>
+                        <a href="tel:+201552114872" class="contact-info">+20 155 211 4872</a>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
+                    <div class="contact-pulse"></div>
+                </div>
+            
+                <div class="contact-card right-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="form-group">
-                        <select id="service" name="service" required>
-                            <option value="" disabled selected>اختر الخدمة</option>
-                            <option value="design">تصميم الجرافيك</option>
-                            <option value="content">كتابة المحتوى</option>
-                            <option value="translation">الترجمة</option>
-                            <option value="translation">تصميم 3D</option>
-                            <option value="video">تحرير الفيديو</option>
-                            <option value="web-design">تصميم مواقع</option>
-                            <option value="development">برمجة مواقع وتطبيقات</option>
-                        </select>
+                    <div class="contact-content">
+                        <span class="contact-label">البريد الإلكتروني</span>
+                        <a href="mailto:hanrahmed54@gmail.com" class="contact-info">hanrahmed54@gmail.com</a>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="الرسالة" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-                </form>
+                    <div class="contact-pulse"></div>
+                </div>
             </div>
         </div>
     </section>
-    <div class="right-side-contact">
-        <!-- عنصر الهاتف -->
-        <div class="contact-card right-card">
-            <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="contact-content">
-                <span class="contact-label">اتصل بنا</span>
-                <a href="tel:+201552114872" class="contact-info">+20 155 211 4872</a>
-            </div>
-            <div class="contact-pulse"></div>
-        </div>
-    
-        <!-- عنصر الإيميل -->
-        <div class="contact-card right-card">
-            <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-content">
-                <span class="contact-label">البريد الإلكتروني</span>
-                <a href="mailto:hanrahmed54@gmail.com" class="contact-info">hanrahmed54@gmail.com</a>
-            </div>
-            <div class="contact-pulse"></div>
-        </div>
-    </div>
-<!-- الباقات -->
+
+    <!-- تذييل الصفحة -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
                     <div class="logo">
+                        <span class="d3-logo">D3<span class="motion-text">motion</span></span>
+                        <span class="logo-tagline">حلول متحركة</span>
                     </div>
                     <p>نقدم حلولاً إبداعية وعملية لمساعدة عملك على النمو والازدهار في العالم الرقمي.</p>
                     <div class="social-links">
@@ -540,54 +557,35 @@
         </div>
     </footer>
     
-
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/+201552114872" class="whatsapp-float right">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">تواصل معنا</span>
+    </a>
+  
+    <!-- JavaScript -->
     <script src="deepseek_javascript_20250426_867f21.js"></script>
     
-    <!-- أضف هذا قبل نهاية body -->
-<a href="https://wa.me/+201552114872" class="whatsapp-float right">
-    <i class="fab fa-whatsapp"></i>
-    <span class="tooltip">تواصل معنا</span>
-  </a>
-  
-
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         // عناصر القائمة
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarOverlay = document.querySelector('.sidebar-overlay');
-        const loader = document.querySelector('.loader');
-    
-        // إخفاء شريط التحميل عند تحميل الصفحة
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                loader.classList.add('hidden');
-            }, 1000);
-        });
-    
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mainNav = document.getElementById('mainNav');
+        
         // فتح/إغلاق القائمة
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        mobileMenu.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileMenu.querySelector('i').classList.toggle('fa-times');
         });
-    
-        sidebarOverlay.addEventListener('click', function() {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-    
+        
         // إغلاق القائمة عند النقر على أي عنصر
-        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
-                sidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                mainNav.classList.remove('active');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
             });
         });
     });
     </script>
-  
 </body>
 </html>
