@@ -20,30 +20,30 @@
 </head>
 <body>
 
-    <!-- شريط التنقل العلوي -->
-    <header>
-        <div class="container">
-            <div class="logo" dir="rtl">
-                <span class="d3-logo">D3<span class="motion-text">motion</span></span>
-                <span class="logo-tagline">حلول متحركة</span>
+        <!-- شريط التنقل العلوي -->
+        <header>
+            <div class="container">
+                <div class="logo" dir="rtl">
+                    <span class="d3-logo">D3<span class="motion-text">motion</span></span>
+                    <span class="logo-tagline">حلول متحركة</span>
+                </div>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                        <li><a href="#services" class="nav-link">خدماتنا</a></li>
+                        <li><a href="#projects" class="nav-link">أعمالنا</a></li>
+                        <li><a href="#pricing" class="nav-link">الباقات</a></li>
+                        <li><a href="#about" class="nav-link">من نحن</a></li>
+                        <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#home" class="nav-link active">الرئيسية</a></li>
-                    <li><a href="#services" class="nav-link">خدماتنا</a></li>
-                    <li><a href="#projects" class="nav-link">أعمالنا</a></li>
-                    <li><a href="#pricing" class="nav-link">الباقات</a></li>
-                    <li><a href="#about" class="nav-link">من نحن</a></li>
-                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
-                </ul>
-            </nav>
-            
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
+        </header>
 
     <!-- القسم الرئيسي -->
     <section id="home" class="hero-section">
@@ -440,59 +440,58 @@
                 <h2 class="section-title">تواصل معنا</h2>
                 <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت</p>
             </div>
-       
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xnndnbzr" method="POST">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
-                </div>
-                <div class="form-group">
-                    <select id="service" name="service" required>
-                        <option value="" disabled selected>اختر الخدمة</option>
-                        <option value="design">تصميم الجرافيك</option>
-                        <option value="content">كتابة المحتوى</option>
-                        <option value="translation">الترجمة</option>
-                        <option value="3d">تصميم 3D</option>
-                        <option value="video">تحرير الفيديو</option>
-                        <option value="web-design">تصميم مواقع</option>
-                        <option value="development">برمجة مواقع وتطبيقات</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="الرسالة" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-            </form>
+       <!-- نموذج الاتصال المحسّن -->
+<form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xnndnbzr">
+    <div class="form-header">
+        <h3>تواصل معنا</h3>
+        <p>سنكون سعداء بمساعدتك في أي استفسار</p>
+    </div>
+    
+    <div class="form-group">
+        <label for="name">الاسم الكامل</label>
+        <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
+        <i class="fas fa-user"></i>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+        <i class="fas fa-envelope"></i>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">رقم الهاتف</label>
+        <input type="tel" id="phone" name="phone" placeholder="+20 123 456 7890">
+        <i class="fas fa-phone"></i>
+    </div>
+    
+    <div class="form-group">
+        <label for="service">نوع الخدمة</label>
+        <select id="service" name="service" required>
+            <option value="" disabled selected>اختر الخدمة المطلوبة</option>
+            <option value="design">تصميم الجرافيك</option>
+            <option value="3d">تصميم ثلاثي الأبعاد</option>
+            <option value="web-design">تصميم مواقع</option>
+            <option value="development">برمجة وتطوير</option>
+            <option value="marketing">التسويق الرقمي</option>
+        </select>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    
+    <div class="form-group">
+        <label for="message">الرسالة</label>
+        <textarea id="message" name="message" placeholder="أخبرنا عن مشروعك..." required></textarea>
+        <i class="fas fa-comment"></i>
+    </div>
+    
+    <div class="form-footer">
+        <button type="submit" class="btn btn-primary submit-btn">
+            <span class="btn-text">إرسال الرسالة</span>
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</form>
             
-            <div class="right-side-contact">
-                <div class="contact-card right-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-content">
-                        <span class="contact-label">اتصل بنا</span>
-                        <a href="tel:+201552114872" class="contact-info">+20 155 211 4872</a>
-                    </div>
-                    <div class="contact-pulse"></div>
-                </div>
-            
-                <div class="contact-card right-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-content">
-                        <span class="contact-label">البريد الإلكتروني</span>
-                        <a href="mailto:hanrahmed54@gmail.com" class="contact-info">hanrahmed54@gmail.com</a>
-                    </div>
-                    <div class="contact-pulse"></div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- تذييل الصفحة -->

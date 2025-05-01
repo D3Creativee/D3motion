@@ -343,4 +343,209 @@ document.body.addEventListener('click', function(e) {
             behavior: 'smooth'
         });
     }
+});document.querySelectorAll('.service-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        console.log('تم النقر على الرابط');
+        console.log('الحدث:', e);
+        console.log('الهدف:', e.target);
+        console.log('الرابط:', this.getAttribute('href'));
+    });
+});// حل كامل متكامل
+function initServiceLinks() {
+    const links = document.querySelectorAll('.service-link');
+    
+    links.forEach(link => {
+        // إزالة جميع المعالجات السابقة
+        link.removeEventListener('click', handleServiceLinkClick);
+        link.addEventListener('click', handleServiceLinkClick);
+    });
+}
+
+function handleServiceLinkClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    
+    const targetId = this.getAttribute('href');
+    if(targetId.startsWith('#')) {
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // إضافة تأثير مرئي للتأكيد
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 300);
+        }
+    }
+}
+
+// تهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', initServiceLinks);
+
+// إعادة التهيئة عند تغيير المحتوى ديناميكياً
+if(typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(function(mutations) {
+        initServiceLinks();
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}// تهيئة الهيدر المتقدم
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.sticky-header');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mainNav = document.getElementById('mainNav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navIndicator = document.querySelector('.nav-indicator');
+    
+    // تأثير التمرير
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        // تحديث المؤشر حسب القسم النشط
+        updateNavIndicator();
+    });
+    
+    // القائمة المتنقلة
+    mobileMenu.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+    
+    // إغلاق القائمة عند النقر على رابط
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mainNav.classList.remove('active');
+        });
+    });
+    
+    // تأثير المؤشر
+    function updateNavIndicator() {
+        const activeLink = document.querySelector('.nav-link.active');
+        if (activeLink) {
+            const linkRect = activeLink.getBoundingClientRect();
+            const navRect = mainNav.getBoundingClientRect();
+            
+            navIndicator.style.width = `${linkRect.width}px`;
+            navIndicator.style.left = `${linkRect.left - navRect.left}px`;
+        }
+    }
+    
+    // تحديث المؤشر عند تحميل الصفحة
+    updateNavIndicator();
+    
+    // تأثيرات الشعار
+    const logo = document.querySelector('.animate-logo');
+    logo.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    
+    logo.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+    
+    // كشف العناصر النشطة
+    const sections = document.querySelectorAll('section');
+    
+    function updateActiveLink() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.scrollY >= (sectionTop - 100)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+        
+        updateNavIndicator();
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+});
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const originalText = btnText.textContent;
+    
+    // عرض حالة التحميل
+    submitBtn.disabled = true;
+    btnText.textContent = 'جاري الإرسال...';
+    submitBtn.style.opacity = '0.8';
+    
+    try {
+        const formData = new FormData(form);
+        
+        // إرسال البيانات إلى Formspree
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            // عرض رسالة النجاح
+            btnText.textContent = 'تم الإرسال بنجاح!';
+            submitBtn.style.backgroundColor = 'var(--success-color)';
+            form.reset();
+            
+            // إعادة تعيين النموذج بعد 3 ثوان
+            setTimeout(() => {
+                btnText.textContent = originalText;
+                submitBtn.style.backgroundColor = 'var(--primary-color)';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }, 3000);
+        } else {
+            throw new Error('فشل في إرسال النموذج');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        btnText.textContent = 'حدث خطأ، حاول مرة أخرى';
+        submitBtn.style.backgroundColor = 'var(--danger-color)';
+        
+        setTimeout(() => {
+            btnText.textContent = originalText;
+            submitBtn.style.backgroundColor = 'var(--primary-color)';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+        }, 3000);
+    }
+});
+
+// تحسين تجربة المستخدم للهاتف
+document.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentElement.querySelector('i').style.color = 'var(--accent-color)';
+    });
+    
+    input.addEventListener('blur', function() {
+        this.parentElement.querySelector('i').style.color = 'var(--primary-color)';
+    });
 });
