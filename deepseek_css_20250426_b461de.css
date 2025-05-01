@@ -2087,3 +2087,88 @@ nav ul {
         padding: 12px 20px;
     }
 }
+/* تحسينات عامة للهاتف */
+@media (max-width: 768px) {
+    /* تحسين حجم الخطوط */
+    body {
+        font-size: 15px;
+    }
+    
+    /* تحسين المسافات */
+    section {
+        padding: 2rem 0;
+    }
+    
+    /* تحسين العناصر التفاعلية */
+    a, button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* منع التكبير عند النقر المزدوج */
+    * {
+        touch-action: manipulation;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    /* إخفاء بعض العناصر غير الضرورية */
+    .btn-arrows i:last-child {
+        display: none;
+    }
+    
+    /* تكبير العناصر التفاعلية */
+    .cta-btn, .cs-icon {
+        transform: scale(1.05);
+    }
+}@media (max-width: 768px) {
+    .customer-service-btn {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .cs-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .cs-tooltip {
+        display: none; /* إخفاء التلميح على الهاتف */
+    }
+    
+    /* عرض التلميح عند النقر بدلاً من التحويم */
+    .customer-service-btn.active .cs-tooltip {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@media (max-width: 768px) {
+    .contact-btn-container {
+        margin: 1.5rem auto;
+    }
+    
+    .cta-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        min-width: 160px;
+    }
+    
+    .btn-arrows i {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.8rem;
+    }
+}
