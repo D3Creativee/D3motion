@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>إبداع تك - حلول إبداعية متكاملة</title>
     <meta name="description" content="نقدم خدمات تصميم الجرافيك، كتابة المحتوى، الترجمة، تحرير الفيديو، تصميم وبرمجة المواقع والتطبيقات">
-    
+    <meta name="theme-color" content="#6c63ff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="manifest" href="/manifest.json">
+
     <!-- CSS Links -->
     <link rel="stylesheet" href="deepseek_css_20250426_b461de.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -585,6 +590,37 @@
             });
         });
     });
+    // تحميل الصور بشكل متدرج
+document.addEventListener('DOMContentLoaded', function() {
+    if ('IntersectionObserver' in window) {
+        const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+        
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove('lazy');
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+        
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+    
+    // تحسين أداء الصور على الهاتف
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.loading = 'lazy';
+        if (window.innerWidth < 768) {
+            img.src = img.src.replace('.jpg', '-mobile.jpg') || img.src;
+            img.srcset = '';
+        }
+    });
+});
     </script>
 </body>
 </html>

@@ -549,3 +549,104 @@ document.querySelectorAll('input, textarea').forEach(input => {
         this.parentElement.querySelector('i').style.color = 'var(--primary-color)';
     });
 });
+// إضافة هذه التعديلات في نهاية الملف
+
+// تحسينات للهاتف
+function initMobileOptimizations() {
+    // تحسين تجربة اللمس
+    document.querySelectorAll('button, a, [role="button"]').forEach(el => {
+        el.style.minHeight = '44px';
+        el.style.minWidth = '44px';
+    });
+    
+    // منع تكبير الصفحة عند النقر المزدوج
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    
+    // تحسين أداء القائمة المتنقلة
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+        mobileMenu.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+            this.classList.add('active-touch');
+        });
+        
+        mobileMenu.addEventListener('touchend', function(e) {
+            e.stopPropagation();
+            this.classList.remove('active-touch');
+        });
+    }
+    
+    // تحسين أداء الكاروسيل على الهاتف
+    const heroCarousel = document.querySelector('.hero-carousel');
+    if (heroCarousel) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        heroCarousel.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        heroCarousel.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // swipe left
+                document.querySelector('.control-next').click();
+            }
+            if (touchEndX > touchStartX + 50) {
+                // swipe right
+                document.querySelector('.control-prev').click();
+            }
+        }
+    }
+    
+    // تحسين أداء الأزرار على الهاتف
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('touchstart', function() {
+            this.classList.add('btn-touch');
+        });
+        
+        btn.addEventListener('touchend', function() {
+            this.classList.remove('btn-touch');
+        });
+    });
+    
+    // تحسين أداء الروابط على الهاتف
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+            }
+        });
+    });
+}
+
+// إضافة تأثيرات اللمس للأزرار في CSS
+/*
+.btn-touch {
+    transform: scale(0.95) !important;
+    opacity: 0.9 !important;
+}
+*/
+
+// تهيئة التحسينات عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileOptimizations();
+    
+    // إضافة كلاس للكشف عن الجهاز
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.documentElement.classList.add('touch-device');
+    } else {
+        document.documentElement.classList.add('no-touch-device');
+    }
+});
