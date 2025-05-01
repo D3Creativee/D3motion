@@ -1340,7 +1340,7 @@ footer {
     transform: translateX(-6px);
 }
 
-/* تأثير النقر */
+/* تأثير النقر */   
 .cta-btn:active {
     transform: translateY(1px);
     box-shadow: 0 3px 10px rgba(78, 107, 255, 0.3);
@@ -1349,16 +1349,27 @@ footer {
 /* تنسيق للجوال */
 @media (max-width: 768px) {
     .contact-btn-container {
-        bottom: 80px;
+        position: fixed;
+        bottom: 80px; /* ارتفاع أعلى من زر الواتساب */
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
+        max-width: 300px;
         text-align: center;
+        z-index: 1001; /* أعلى من زر الواتساب */
     }
     
     .cta-btn {
         width: 100%;
         justify-content: center;
-        padding: 102px 20px;
+        padding: 12px 20px; /* تصحيح قيمة padding */
+        font-size: 1rem;
+        box-shadow: 0 4px 12px rgba(78, 107, 255, 0.4);
+    }
+    
+    /* تنسيق زر الواتساب (إذا كان موجوداً) */
+    .whatsapp-btn {
+        bottom: 20px !important;
+        z-index: 1000 !important;
     }
 }
