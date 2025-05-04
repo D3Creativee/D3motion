@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمالي | [اسمك]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS سيأتي هنا */
+        /* المتغيرات */
+:root {
+    --primary: #4e54c8;
+    --secondary: #8f94fb;
+    --accent: #f9a826;
+    --dark: #2a2d3b;
+    --light: #f8f9fa;
+    --text: #333;
+}
+.services {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    direction: rtl;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #4e6bff;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: #f0f4ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #4e6bff;
+    transition: all 0.3s ease;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-link {
+    color: #4e6bff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.service-link i {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+/* تأثيرات الـ Hover */
+.hover-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hover-effect:hover .service-icon {
+    background: #4e6bff;
+    color: #fff;
+    transform: rotate(15deg);
+}
+
+.hover-effect:hover .service-link {
+    color: #333;
+}
+
+.hover-effect:hover .service-link i {
+    margin-right: 12px;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+/* الأساسيات */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* شريط التنقل */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+/* القسم الرئيسي */
+.hero {
+    padding: 150px 0 80px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    flex: 1;
+    padding-left: 30px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--text);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* الأزرار */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a41b8;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    margin-right: 15px;
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* قسم المشاريع */
+.projects {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+    color: var(--dark);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(78, 84, 200, 0.9), transparent);
+    color: white;
+    transition: bottom 0.3s;
+}
+
+.project-card:hover .project-info {
+    bottom: 0;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* قسم الخدمات */
+.services {
+    padding: 80px 0;
+    background-color: var(--light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* قسم اتصل بي */
+.contact {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* الفوتر */
+.footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+/* التجاوبية */
+@media (max-width: 992px) {
+    .hero .container {
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        padding-left: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .btn-outline {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 120px 0 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* أنماط قسم الاتصال */
+.contact {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  direction: rtl;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: #4e6bff;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.contact-form {
+  padding: 40px;
+  width: 100%;
+}
+
+.form-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-header h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-header p {
+  color: #666;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.half-width {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.required {
+  color: #ff4757;
+}
+
+.input-with-icon,
+.textarea-with-icon,
+.select-with-icon {
+  position: relative;
+}
+
+.input-with-icon i,
+.textarea-with-icon i,
+.select-with-icon i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.textarea-with-icon i {
+  top: 20px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4e6bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 107, 255, 0.2);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-primary {
+  background: #4e6bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #3a56e0;
+  transform: translateY(-2px);
+}
+
+.btn-text {
+  margin-left: 8px;
+}
+
+.form-note {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* تأثيرات الـ 3D */
+.hover-3d {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* أنماط الاستجابة */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .half-width {
+    width: 100%;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">معرض أعمالي</a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#about">عنّي</a></li>
+                <li><a href="#contact">اتصل بي</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- قسم الرئيسية -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>مرحباً، أنا <span>[ابدع تك]</span></h1>
+                <p>[وهذا معرض اعمالنا]</p>
+                <a href="#projects" class="btn btn-primary">استعرض أعمالي</a>
+                <a href="#contact" class="btn btn-outline">تواصل معي</a>
+            </div>
+            <div class="hero-image">
+                <img src="my.png" alt="صورتي الشخصية">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">أحدث مشاريعي</h2>
+            <div class="projects-grid">
+                <!-- مشروع 1 -->
+                <div class="project-card">
+                    <img src="a.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="s.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="sa.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="sd.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="d.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="g.png" alt="اسم المشروع">
+                    <div class="project-info">
+                        <h3>اسم المشروع</h3>
+                        <p>وصف مختصر للمشروع</p>
+                        <a href="#" class="project-link">عرض التفاصيل</a>
+                    </div>
+                </div>
+                        </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الخدمات التي أقدمها</h2>
+                <p class="section-subtitle">حلول إبداعية تلبي جميع احتياجاتك الرقمية</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- خدمة 1 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>تصميم جرافيك</h3>
+                    <p>تصميم شعارات، بروشورات، بطاقات عمل وهوية بصرية متكاملة</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 2 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>تطوير مواقع</h3>
+                    <p>تصميم وتطوير مواقع احترافية متكاملة وتطبيقات ويب متقدمة</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 3 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تطبيقات الجوال</h3>
+                    <p>برمجة تطبيقات iOS و Android بأحدث التقنيات والأدوات</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 4 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>متاجر إلكترونية</h3>
+                    <p>إنشاء وتطوير متاجر إلكترونية متكاملة مع حلول الدفع والشحن</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 5 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>التسويق الرقمي</h3>
+                    <p>حملات إعلانية مدروسة وتحسين محركات البحث SEO</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <!-- خدمة 6 -->
+                <div class="service-card hover-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-photo-video"></i>
+                    </div>
+                    <h3>تصميم ثلاثي الأبعاد</h3>
+                    <p>تصميم نماذج 3D احترافية للمنتجات والعمارة والألعاب</p>
+                    <a href="#contact" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم اتصل بي -->
+    
+    <!-- قسم الاتصال -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نحن هنا لمساعدتك في أي وقت. املأ النموذج وسنرد عليك خلال 24 ساعة</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- نموذج الاتصال المحسّن -->
+                <form
+                action="https://formspree.io/f/xnndnbzr"
+                method="POST"
+
+        ><i class="fas fa-paper-plane"></i> أرسل رسالتك</h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="name">الاسم الكامل <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group half-width">
+                            <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="phone">رقم الهاتف</label>
+                            <div class="input-with-icon">
+                                <input type="tel" id="phone" name="phone" placeholder="+20 123 456 7890">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group half-width">
+                            <label for="service">نوع الخدمة <span class="required">*</span></label>
+                            <div class="select-with-icon">
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>اختر الخدمة المطلوبة</option>
+                                    <option value="design">تصميم الجرافيك</option>
+                                    <option value="3d">تصميم ثلاثي الأبعاد</option>
+                                    <option value="web-design">تصميم مواقع</option>
+                                    <option value="development">برمجة وتطوير</option>
+                                    <option value="marketing">التسويق الرقمي</option>
+                                    <option value="other">خدمة أخرى</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">الرسالة <span class="required">*</span></label>
+                        <div class="textarea-with-icon">
+                            <textarea id="message" name="message" rows="5" placeholder="أخبرنا عن مشروعك بالتفصيل..." required></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-text">إرسال الرسالة</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <p class="form-note">جميع الحقول المميزة بـ <span class="required">*</span> إلزامية</p>
+                        </div>
+                    </div>
+                </form>
+                
+             
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2023 جميع الحقوق محفوظة لـ [اسمك]</p>
+        </div>
+    </footer>
+
+    <script>
+       // القائمة المتنقلة
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
+
+// تأثير سلس للروابط
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // إغلاق القائمة المتنقلة إذا كانت مفتوحة
+            if (document.querySelector('.nav-links').classList.contains('active')) {
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        }
+    });
+});
+
+
+// تغيير لون الهيدر عند التمرير
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.backgroundColor = 'white';
+    }
+});
+
+// إرسال النموذج
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // تأثير التحميل
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+    submitBtn.disabled = true;
+    
+    // هنا يمكنك إضافة كود الإرسال الفعلي
+    setTimeout(() => {
+        // رسالة النجاح
+        this.innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>تم إرسال رسالتك بنجاح!</h3>
+                <p>سنقوم بالرد عليك في أقرب وقت</p>
+            </div>
+        `;
+    }, 1500);
+});
+       // الأكواد البرمجية ستأتي هنا
+       document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    // التحقق من صحة النموذج قبل الإرسال
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // التحقق من الحقول المطلوبة
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const service = document.getElementById('service');
+      const message = document.getElementById('message');
+      
+      let isValid = true;
+      
+      // إعادة تعيين أنماط الخطأ
+      resetErrorStyles();
+      
+      // التحقق من الحقول الفارغة
+      if (!name.value.trim()) {
+        showError(name, 'الرجاء إدخال الاسم الكامل');
+        isValid = false;
+      }
+      
+      if (!email.value.trim()) {
+        showError(email, 'الرجاء إدخال البريد الإلكتروني');
+        isValid = false;
+      } else if (!validateEmail(email.value)) {
+        showError(email, 'البريد الإلكتروني غير صالح');
+        isValid = false;
+      }
+      
+      if (service.value === '' || service.value === null) {
+        showError(service, 'الرجاء اختيار الخدمة');
+        isValid = false;
+      }
+      
+      if (!message.value.trim()) {
+        showError(message, 'الرجاء إدخال الرسالة');
+        isValid = false;
+      }
+      
+      // إذا كان النموذج صالحاً، قم بالإرسال
+      if (isValid) {
+        submitForm();
+      }
+    });
+    
+    // دالة لعرض رسالة الخطأ
+    function showError(input, message) {
+      const formGroup = input.closest('.form-group');
+      const errorElement = formGroup.querySelector('.error-message') || document.createElement('div');
+      
+      errorElement.className = 'error-message';
+      errorElement.style.color = '#ff4757';
+      errorElement.style.fontSize = '0.8rem';
+      errorElement.style.marginTop = '5px';
+      errorElement.textContent = message;
+      
+      if (!formGroup.querySelector('.error-message')) {
+        formGroup.appendChild(errorElement);
+      }
+      
+      input.style.borderColor = '#ff4757';
+    }
+    
+    // دالة لإعادة تعيين أنماط الخطأ
+    function resetErrorStyles() {
+      const errorMessages = document.querySelectorAll('.error-message');
+      const inputs = document.querySelectorAll('input, textarea, select');
+      
+      errorMessages.forEach(msg => msg.remove());
+      inputs.forEach(input => {
+        input.style.borderColor = '#ddd';
+      });
+    }
+    
+    // دالة للتحقق من صحة البريد الإلكتروني
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+    
+    // دالة لإرسال النموذج
+    function submitForm() {
+      const submitBtn = contactForm.querySelector('.submit-btn');
+      const originalText = submitBtn.querySelector('.btn-text').textContent;
+      
+      // تغيير نص الزر أثناء الإرسال
+      submitBtn.querySelector('.btn-text').textContent = 'جاري الإرسال...';
+      submitBtn.disabled = true;
+      
+      // هنا يمكنك استخدام AJAX لإرسال النموذج
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // عرض رسالة النجاح
+          showSuccessMessage();
+          contactForm.reset();
+        } else {
+          throw new Error('فشل في إرسال النموذج');
+        }
+      })
+      .catch(error => {
+        alert('حدث خطأ أثناء إرسال النموذج: ' + error.message);
+      })
+      .finally(() => {
+        // إعادة تعيين الزر إلى حالته الأصلية
+        submitBtn.querySelector('.btn-text').textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    }
+    
+    // دالة لعرض رسالة النجاح
+    function showSuccessMessage() {
+      const successMessage = document.createElement('div');
+      successMessage.className = 'success-message';
+      successMessage.style.backgroundColor = '#4BB543';
+      successMessage.style.color = 'white';
+      successMessage.style.padding = '15px';
+      successMessage.style.borderRadius = '5px';
+      successMessage.style.marginTop = '20px';
+      successMessage.style.textAlign = 'center';
+      successMessage.textContent = 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.';
+      
+      const formFooter = contactForm.querySelector('.form-footer');
+      formFooter.parentNode.insertBefore(successMessage, formFooter.nextSibling);
+      
+      // إخفاء الرسالة بعد 5 ثوان
+      setTimeout(() => {
+        successMessage.style.opacity = '0';
+        setTimeout(() => successMessage.remove(), 300);
+      }, 5000);
+    }
+  }
+  
+  // تأثيرات الـ 3D للأزرار
+  const buttons = document.querySelectorAll('.hover-3d');
+  buttons.forEach(button => {
+    button.addEventListener('mousemove', function(e) {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      const btnWidth = this.clientWidth;
+      const btnHeight = this.clientHeight;
+      const moveX = (x - btnWidth / 2) / 10;
+      const moveY = (y - btnHeight / 2) / 10;
+      
+      this.style.transform = `translateY(-5px) perspective(500px) rotateX(${moveY}deg) rotateY(${moveX}deg)`;
+    });
+    
+    button.addEventListener('mouseout', function() {
+      this.style.transform = 'translateY(-5px) perspective(500px) rotateX(0) rotateY(0)';
+    });
+  });
+});
+fetch(contactForm.action, {
+  method: 'POST',
+  body: new FormData(contactForm),
+  headers: {
+    'Accept': 'application/json'
+  }
+})
+console.log("جاري الإرسال إلى:", contactForm.action); // للتأكد من الرابط
+fetch.then(response => console.log(response)) // لرؤية الرد
+    </script>
+</body>
+</html>
